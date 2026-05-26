@@ -15,7 +15,7 @@ interface DetailHeaderProps {
 
 export function DetailHeader({
   title,
-  subtitle = "Details",
+  subtitle = "Детали",
   backHref,
   backLabel,
   onEdit,
@@ -39,11 +39,11 @@ export function DetailHeader({
         <div className="flex gap-2">
           <Button variant="outline" onClick={onEdit}>
             <Edit className="size-4" />
-            <span className="hidden sm:inline">Edit</span>
+            <span className="hidden sm:inline">Редактировать</span>
           </Button>
           <Button variant="destructive" onClick={onDelete}>
             <Trash2 className="size-4" />
-            <span className="hidden sm:inline">Delete</span>
+            <span className="hidden sm:inline">Удалить</span>
           </Button>
         </div>
       </div>

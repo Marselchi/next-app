@@ -21,8 +21,8 @@ export function DateRangeFilter({
 }: Readonly<DateRangeFilterProps>) {
   const formatDateRange = () => {
     if (!value?.from) return null
-    if (!value.to) return value.from.toLocaleDateString()
-    return `${value.from.toLocaleDateString()} - ${value.to.toLocaleDateString()}`
+    if (!value.to) return value.from.toLocaleDateString("ru-RU")
+    return `${value.from.toLocaleDateString("ru-RU")} - ${value.to.toLocaleDateString("ru-RU")}`
   }
 
   return (
@@ -32,9 +32,9 @@ export function DateRangeFilter({
           <Button variant="outline" className="w-full sm:w-auto">
             <Calendar className="size-4" />
             <span className="hidden sm:inline">
-              {formatDateRange() || "Date Range"}
+              {formatDateRange() || "Период"}
             </span>
-            <span className="sm:hidden">Dates</span>
+            <span className="sm:hidden">Даты</span>
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="end">

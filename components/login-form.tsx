@@ -34,11 +34,11 @@ export function LoginForm({
         password,
       })
 
-      toast.success("Successfully signed in")
+      toast.success("Вход успешен")
 
       router.push("/dashboard")
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : "Failed to sign in")
+      toast.error(error instanceof Error ? error.message : "Ошибка входа")
     }
   }
 
@@ -50,21 +50,20 @@ export function LoginForm({
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="text-2xl font-bold">Войдите в ваш аккаунт</h1>
 
           <p className="text-sm text-balance text-muted-foreground">
-            Enter your email below to login to your account
+            Введите вашу почту ниже чтобы войти в аккаунт
           </p>
         </div>
 
         <Field>
-          <FieldLabel htmlFor="email">Email</FieldLabel>
-
+          <FieldLabel htmlFor="email">Почта</FieldLabel>
           <Input
             name="email"
             id="email"
             type="email"
-            placeholder="m@example.com"
+            placeholder="email@example.com"
             required
             className="bg-background"
           />
@@ -72,9 +71,8 @@ export function LoginForm({
 
         <Field>
           <div className="flex items-center">
-            <FieldLabel htmlFor="password">Password</FieldLabel>
+            <FieldLabel htmlFor="password">Пароль</FieldLabel>
           </div>
-
           <Input
             name="password"
             id="password"
@@ -83,17 +81,16 @@ export function LoginForm({
             className="bg-background"
           />
         </Field>
-
         <Field>
           <Button type="submit" disabled={signInMutation.isPending}>
-            {signInMutation.isPending ? "Loading..." : "Login"}
+            {signInMutation.isPending ? "Вход..." : "Войти"}
           </Button>
         </Field>
         <Field>
           <FieldDescription className="text-center">
-            Don&apos;t have an account?{" "}
+            У вас нет аккаунта?
             <Link href="/signup" className="underline underline-offset-4">
-              Sign up
+              Регистрация
             </Link>
           </FieldDescription>
         </Field>

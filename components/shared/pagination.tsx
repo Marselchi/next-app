@@ -22,17 +22,17 @@ export function Pagination({
         onClick={() => onPageChange(Math.max(1, page - 1))}
         disabled={page === 1}
       >
-        Previous
+        Предыдущая
       </Button>
       <span className="flex items-center px-4 text-sm text-muted-foreground">
-        Page {page} of {totalPages}
+        Страница {page} из {totalPages}
       </span>
       <Button
         variant="outline"
         onClick={() => onPageChange(Math.min(totalPages, page + 1))}
         disabled={page === totalPages}
       >
-        Next
+        Следующая
       </Button>
     </div>
   )

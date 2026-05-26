@@ -40,11 +40,11 @@ export function SignupForm({
         password,
         confirmPassword,
       })
-      toast.success("Account created")
+      toast.success("Успешная регистрация")
       router.push("/dashboard")
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Failed to create account"
+        error instanceof Error ? error.message : "Ошибка создания аккаунта"
       )
     }
   }
@@ -57,21 +57,20 @@ export function SignupForm({
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Create your account</h1>
+          <h1 className="text-2xl font-bold">Создайте аккаунт</h1>
 
           <p className="text-sm text-balance text-muted-foreground">
-            Fill in the form below to create your account
+            Заполните все данные ниже для регистрации
           </p>
         </div>
 
         <Field>
-          <FieldLabel htmlFor="name">Full Name</FieldLabel>
-
+          <FieldLabel htmlFor="name">Имя</FieldLabel>
           <Input
             name="name"
             id="name"
             type="text"
-            placeholder="John Doe"
+            placeholder="Иван Иванов"
             required
             className="bg-background"
           />
@@ -79,24 +78,18 @@ export function SignupForm({
 
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-
           <Input
             name="email"
             id="email"
             type="email"
-            placeholder="m@example.com"
+            placeholder="email@example.com"
             required
             className="bg-background"
           />
-
-          <FieldDescription>
-            We&apos;ll use this to contact you. We will not share your email
-            with anyone else.
-          </FieldDescription>
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="password">Password</FieldLabel>
+          <FieldLabel htmlFor="password">Пароль</FieldLabel>
 
           <Input
             name="password"
@@ -106,13 +99,11 @@ export function SignupForm({
             className="bg-background"
           />
 
-          <FieldDescription>
-            Must be at least 8 characters long.
-          </FieldDescription>
+          <FieldDescription>Как минимум 8 символов.</FieldDescription>
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="confirm-password">Confirm Password</FieldLabel>
+          <FieldLabel htmlFor="confirm-password">Подтвердите пароль</FieldLabel>
 
           <Input
             name="confirm-password"
@@ -122,12 +113,12 @@ export function SignupForm({
             className="bg-background"
           />
 
-          <FieldDescription>Please confirm your password.</FieldDescription>
+          <FieldDescription>Пожалуйста подтвердите пароль.</FieldDescription>
         </Field>
 
         <Field>
           <Button type="submit" disabled={signUpMutation.isPending}>
-            {signUpMutation.isPending ? "Loading..." : "Create Account"}
+            {signUpMutation.isPending ? "Регистрируем..." : "Создать аккаунт"}
           </Button>
         </Field>
 
@@ -135,7 +126,7 @@ export function SignupForm({
 
         <Field>
           <FieldDescription className="px-6 text-center">
-            Already have an account? <Link href="/login">Sign in</Link>
+            Уже есть аккаунт? <Link href="/login">Войти</Link>
           </FieldDescription>
         </Field>
       </FieldGroup>

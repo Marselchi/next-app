@@ -29,18 +29,14 @@ export default function PersonalDetailPage({
   const { id } = use(params)
   const router = useRouter()
 
-  // Dialog state
   const [editOpen, setEditOpen] = useState(false)
   const [deleteOpen, setDeleteOpen] = useState(false)
 
-  // Data fetching
   const { data: item, isLoading } = userItem.useDetail(id)
 
-  // Mutations
   const update = userItem.useUpdate()
   const remove = userItem.useDelete()
 
-  // Handlers
   const handleEdit = async (name: string) => {
     await update.mutateAsync({
       id: Number(id),
@@ -55,7 +51,7 @@ export default function PersonalDetailPage({
   }
 
   const formatDate = (dateStr: Date | string) =>
-    new Date(dateStr).toLocaleDateString("en-US", {
+    new Date(dateStr).toLocaleDateString("ru-RU", {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -76,9 +72,9 @@ export default function PersonalDetailPage({
       <div className="min-h-screen bg-background">
         <div className="container mx-auto max-w-4xl px-4 py-6">
           <div className="flex flex-col items-center justify-center gap-4 py-12">
-            <p className="text-muted-foreground">Item not found</p>
+            <p className="text-muted-foreground">Не найдено</p>
             <Button asChild variant="outline">
-              <Link href="/personal">Back to Personal</Link>
+              <Link href="/personal">Вернутся</Link>
             </Button>
           </div>
         </div>
@@ -94,14 +90,14 @@ export default function PersonalDetailPage({
             title={item.name}
             subtitle="Item Details"
             backHref="/personal"
-            backLabel="Back to Personal"
+            backLabel="Вернутсяы"
             onEdit={() => setEditOpen(true)}
             onDelete={() => setDeleteOpen(true)}
           />
 
           <Card>
             <CardHeader>
-              <CardTitle>Information</CardTitle>
+              <CardTitle>Информация</CardTitle>
               <CardDescription>
                 View all details about this item
               </CardDescription>
@@ -111,7 +107,7 @@ export default function PersonalDetailPage({
                 <InfoItem
                   icon={User}
                   label="Author"
-                  value={item.user?.name || "Unknown"}
+                  value={item.user?.name || "Неизвестно"}
                 />
                 <InfoItem
                   icon={Calendar}

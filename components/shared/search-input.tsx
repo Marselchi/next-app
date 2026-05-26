@@ -12,7 +12,7 @@ interface SearchInputProps {
 export function SearchInput({
   value,
   onChange,
-  placeholder = "Search...",
+  placeholder = "Поиск...",
 }: Readonly<SearchInputProps>) {
   return (
     <div className="relative flex-1">

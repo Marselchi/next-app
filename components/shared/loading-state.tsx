@@ -5,7 +5,7 @@ interface LoadingStateProps {
 }
 
 export function LoadingState({
-  message = "Loading...",
+  message = "Загрузка...",
 }: Readonly<LoadingStateProps>) {
   return (
     <div className="flex items-center justify-center py-12">

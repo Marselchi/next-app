@@ -27,8 +27,8 @@ export function ConfirmDialog({
   onOpenChange,
   title,
   description,
-  confirmLabel = "Confirm",
-  cancelLabel = "Cancel",
+  confirmLabel = "Подтвердить",
+  cancelLabel = "Отменить",
   variant = "default",
   isLoading = false,
   onConfirm,
@@ -45,7 +45,7 @@ export function ConfirmDialog({
             {cancelLabel}
           </Button>
           <Button variant={variant} onClick={onConfirm} disabled={isLoading}>
-            {isLoading ? "Loading..." : confirmLabel}
+            {isLoading ? "Загрузка..." : confirmLabel}
           </Button>
         </DialogFooter>
       </DialogContent>

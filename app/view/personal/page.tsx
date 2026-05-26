@@ -52,16 +52,13 @@ export default function PersonalPage() {
 
   const { data: filters } = manyFilter.useList({ limit: 100 })
 
-  // Mutations
   const create = userItem.useCreate()
   const update = userItem.useUpdate()
   const remove = userItem.useDelete()
 
-  // Derived data
   const data: UserItemData[] = items?.items ?? []
   const tagOptions: TagOption[] = filters?.items ?? []
 
-  // Handlers
   const handleCreate = async (data: { name: string }) => {
     if (!session?.user?.id) return
 
@@ -127,10 +124,9 @@ export default function PersonalPage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto max-w-4xl px-4 py-6">
         <div className="flex flex-col gap-6">
-          {/* Header */}
           <PageHeader
-            title="Personal"
-            description="Manage your personal items"
+            title="Ваше"
+            description="Ваши персональные"
             action={
               <CreateUserItemDialog
                 isLoading={create.isPending}
@@ -139,13 +135,12 @@ export default function PersonalPage() {
             }
           />
 
-          {/* Filters */}
           <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <SearchInput
                 value={search}
                 onChange={setSearch}
-                placeholder="Search by name..."
+                placeholder="Поиск по имени..."
               />
 
               <div className="flex flex-wrap gap-2 sm:flex-nowrap">
@@ -165,7 +160,6 @@ export default function PersonalPage() {
               </div>
             </div>
 
-            {/* Active filters */}
             {hasActiveFilters && (
               <div className="flex flex-wrap gap-2">
                 <ActiveTags
@@ -182,7 +176,6 @@ export default function PersonalPage() {
             )}
           </div>
 
-          {/* Content */}
           {isLoading ? (
             <LoadingState />
           ) : data.length === 0 ? (
@@ -195,7 +188,6 @@ export default function PersonalPage() {
             />
           )}
 
-          {/* Pagination */}
           <Pagination
             page={page}
             totalPages={(items?.meta as PaginatedMeta)?.totalPages || 1}
@@ -204,7 +196,6 @@ export default function PersonalPage() {
         </div>
       </div>
 
-      {/* Dialogs */}
       <EditUserItemDialog
         open={editOpen}
         onOpenChange={setEditOpen}
@@ -217,7 +208,7 @@ export default function PersonalPage() {
         open={deleteOpen}
         onOpenChange={setDeleteOpen}
         title="Delete Item"
-        description={`Are you sure you want to delete "${selectedItem?.name}"? This action cannot be undone.`}
+        description={`Вы уверены что хотите удалить "${selectedItem?.name}"? Это действие не может быть отменено.`}
         confirmLabel="Delete"
         variant="destructive"
         isLoading={remove.isPending}

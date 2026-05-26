@@ -7,7 +7,7 @@ interface EmptyStateProps {
 }
 
 export function EmptyState({
-  message = "No items found",
+  message = "Ничего не найдено",
 }: Readonly<EmptyStateProps>) {
   return (
     <Card>
